@@ -282,7 +282,7 @@ def main():
 
     if is_bare_console():
         print("")
-        print("Minecraft Region Fixer hast a command line aplication and a GUI\n"
+        print("Minecraft Region Fixer has a command line aplication and a GUI\n"
               "(Graphic User Interface) and you have just double clicked the\n"
               "command line interface. If you really want to run the command line\n"
               "interface you have to use a command prompt (cmd.exe)\n\n"
