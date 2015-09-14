@@ -273,7 +273,7 @@ def main():
     (options, args) = parser.parse_args()
     o = options
 
-    if sys.version_info[0] > 2:
+    if sys.version_info[0] > 3:
         print("")
         print("Minecraft Region Fixer only works with python 2.x")
         print("(And you just tried to run it in python {0})".format(sys.version))
@@ -505,7 +505,6 @@ if __name__ == '__main__':
         freeze_support()
         value = main()
         sys.exit(value)
-
     except ChildProcessException as e:
         had_exception = True
         print(ERROR_MSG)
@@ -514,6 +513,8 @@ if __name__ == '__main__':
         bug_report = bug_sender.error_str
 
     except Exception as e:
+        import pdb
+        pdb.set_trace()
         had_exception = True
         print(ERROR_MSG)
         # Traceback will be taken in init

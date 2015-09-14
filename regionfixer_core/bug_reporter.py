@@ -7,8 +7,8 @@ Created on 16/09/2014
 import sys
 import ftplib
 import datetime
-from StringIO import StringIO
-from util import query_yes_no, get_str_from_traceback
+from io import StringIO, BytesIO
+from .util import query_yes_no, get_str_from_traceback
 
 
 SERVER = 'regionfixer.no-ip.org'
@@ -46,7 +46,7 @@ class BugReporter(object):
 
     def _get_fileobj_from_tb(self, ty, value, tb):
         ''' Return a file obj from a traceback object. '''
-        f = StringIO(get_str_from_traceback(ty, value, tb))
+        f = BytesIO(get_str_from_traceback(ty, value, tb))
         f.seek(0)
         return f
 
