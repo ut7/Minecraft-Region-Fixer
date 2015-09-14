@@ -258,7 +258,7 @@ class ScannedRegionFile(object):
             an integer with the counter. """
         counter = 0
         for coords in self.keys():
-            if self[coords] and (self[coords][TUPLE_STATUS] == problem or problem == None):
+            if self[coords] and (self[coords][TUPLE_STATUS] == problem or problem is None):
                 counter += 1
 
         return counter
@@ -302,7 +302,7 @@ class ScannedRegionFile(object):
             t = self[c]
             if status == t[TUPLE_STATUS]:
                 l.append((self.get_global_chunk_coords(*c), t))
-            elif status == None:
+            elif status is None:
                 l.append((self.get_global_chunk_coords(*c), t))
         return l
 
@@ -546,7 +546,7 @@ class RegionSet(DataSet):
             in the RegionSet with status. If status = None it returns
             all the objects."""
 
-        if status == None:
+        if status is None:
             #~ print "Estamos tras pasar el if para status None"
             #~ print "Los valores de el dict son:"
             #~ print self.regions.values()
@@ -569,7 +569,7 @@ class RegionSet(DataSet):
         for r in self.keys():
             if status == self[r].status:
                 counter += 1
-            elif status == None:
+            elif status is None:
                 counter += 1
         return counter
 
@@ -915,7 +915,7 @@ class World(object):
                                 status_tuple = None
 
                             # Retrive the status from status_tuple
-                            if status_tuple == None:
+                            if status_tuple is None:
                                 status = CHUNK_NOT_CREATED
                             else:
                                 status = status_tuple[TUPLE_STATUS]
