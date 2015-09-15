@@ -505,6 +505,7 @@ if __name__ == '__main__':
         freeze_support()
         value = main()
         sys.exit(value)
+
     except ChildProcessException as e:
         had_exception = True
         print(ERROR_MSG)
@@ -513,8 +514,6 @@ if __name__ == '__main__':
         bug_report = bug_sender.error_str
 
     except Exception as e:
-        import pdb
-        pdb.set_trace()
         had_exception = True
         print(ERROR_MSG)
         # Traceback will be taken in init
